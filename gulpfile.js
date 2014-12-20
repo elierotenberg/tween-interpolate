@@ -1,14 +1,28 @@
+var Promise = global.Promise = require('lodash-next').Promise;
 require('6to5/polyfill');
-var Promise = require('lodash-next').Promise;
+
+var del = require('del');
+var es6to5 = require('gulp-6to5');
+var exec = require('child_process').exec;
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var plumber = require('gulp-plumber');
-var jshint = require('gulp-jshint');
-var stylish = require('jshint-stylish');
-var es6to5 = require('gulp-6to5');
-var del = require('del');
 var insert = require('gulp-insert');
+var jshint = require('gulp-jshint');
+var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
+var stylish = require('jshint-stylish');
+
+function smash(fn) {
+  exec('smash.sh', function(err, out, warn) {
+    if(warn) {
+      console.warn(warn);
+    }
+    if(err) {
+      return fn(err);
+    }
+    return fn(null, out);
+  });
+}
 
 function lint() {
   return gulp.src('src/**/*.js')
@@ -34,6 +48,10 @@ function build() {
 function clean() {
   del(['dist']);
 }
+
+gulp.task('smash', function(fn) {
+  return smash(fn);
+});
 
 gulp.task('lint', function() {
   return lint();
