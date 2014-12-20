@@ -1,6 +1,6 @@
-My default npm starterkit.
-Includes:
-- Sane file structure,
-- Sane `package.json`/`bower.json`,
-- ES6-to-ES5 transpiling/polyfilling (`Promise` with `bluebird`),
-- Common libs (`lodash-next`, `co`, `should`).
+tween-interpolate
+=================
+
+Ultra simple, ultra lightweight interpolators with support for complex values types (strings, numbers, colors, etc.).
+
+Heavily inspired from [D3 Interpolate](https://github.com/mbostock/d3/tree/master/src/interpolate).
