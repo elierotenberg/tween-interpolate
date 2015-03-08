@@ -18,8 +18,8 @@
   "homepage": "https://github.com/elierotenberg/tween-interpolate",
   "devDependencies": {
     "d3": "^3.5.5",
-    "del": "^0.1.3",
-    "gulp": "^3.8.10",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
     "smash": "0.0.14"
   }
 }
